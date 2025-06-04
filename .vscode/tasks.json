@@ -1,0 +1,52 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "Build with SFML",
+        "type": "shell",
+        "command": "D:\\Compilers\\mingw64\\bin\\g++.exe",
+        "args": [
+          "-ID:\\Compilers\\SFML-2.6.2\\include",
+          "-LD:\\Compilers\\SFML-2.6.2\\lib",
+          //"${workspaceFolder}\\MazeSolver.cpp",
+          //"${workspaceFolder}\\Generator.cpp",
+          //"${workspaceFolder}\\Maze_simulation.cpp",
+          "${workspaceFolder}\\ImperfectMazeSimulation.cpp",
+          
+          "-o",
+          "${workspaceFolder}\\ImperfectMazeSimulation.exe",
+          "-lsfml-graphics",
+          "-lsfml-window",
+          "-lsfml-system",
+          "-lsfml-audio",
+        ],
+        "options": {
+          "cwd": "${workspaceFolder}",
+          "shell": {
+            "executable": "powershell.exe" // <-- Changed this line
+          }
+        },
+        "group": {
+          "kind": "build",
+          "isDefault": true
+        },
+        "problemMatcher": ["$gcc"],
+        "detail": "Build C++ using g++ and SFML"
+      },
+      {
+        "label": "Run Executable",
+        "type": "shell",
+        "command": "${workspaceFolder}\\app.exe",
+        "options": {
+          "shell": {
+            "executable": "powershell.exe" // <-- Changed this line
+          }
+        },
+        "group": "test",
+        "presentation": {
+          "reveal": "always",
+          "panel": "shared"
+        }
+      }
+    ]
+  }
